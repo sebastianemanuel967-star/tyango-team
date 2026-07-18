@@ -2,11 +2,11 @@ import { store } from './store.js';
 
 export function seedDatabase() {
   const users = [
-    { id: 'u_admin', name: 'Tyan Mena', pin: '0000', role: 'admin', rank: 'founder_go', cardType: 'founder', cardCustom: null, mentorId: null, totalProducts: 31, monthProducts: 0, historicalProducts: 31, createdAt: '2026-01-01T00:00:00' },
-    { id: 'u_david', name: 'David', pin: '1111', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_admin', totalProducts: 9, monthProducts: 0, historicalProducts: 9, createdAt: '2026-01-01T00:00:00' },
-    { id: 'u_jordan', name: 'Jordan', pin: '2222', role: 'asesor', rank: 'explorador_go', cardType: 'silver', cardCustom: { gradient: ['#1a1a1a', '#8B0000'], accent: '#ff3333', style: 'urban', initials: 'JRD', pattern: 'graffiti' }, mentorId: 'u_admin', totalProducts: 5, monthProducts: 0, historicalProducts: 5, createdAt: '2026-01-01T00:00:00' },
-    { id: 'u_ayde', name: 'Ayde', pin: '3333', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_admin', totalProducts: 5, monthProducts: 0, historicalProducts: 5, createdAt: '2026-01-01T00:00:00' },
-    { id: 'u_salome', name: 'Salom\u00e9', pin: '4444', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_admin', totalProducts: 3, monthProducts: 0, historicalProducts: 3, createdAt: '2026-01-01T00:00:00' },
+    { id: 'u_admin', name: 'Tyan Mena', pin: '0000', role: 'admin', rank: 'founder_go', cardType: 'founder', cardCustom: null, mentorId: null, totalProducts: 31, monthProducts: 31, historicalProducts: 31, createdAt: '2026-01-01T00:00:00' },
+    { id: 'u_david', name: 'David', pin: '1111', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_admin', totalProducts: 9, monthProducts: 9, historicalProducts: 9, createdAt: '2026-01-01T00:00:00' },
+    { id: 'u_jordan', name: 'Jordan', pin: '2222', role: 'asesor', rank: 'explorador_go', cardType: 'silver', cardCustom: { gradient: ['#1a1a1a', '#8B0000'], accent: '#ff3333', style: 'urban', initials: 'JRD', pattern: 'graffiti' }, mentorId: 'u_admin', totalProducts: 5, monthProducts: 5, historicalProducts: 5, createdAt: '2026-01-01T00:00:00' },
+    { id: 'u_ayde', name: 'Ayde', pin: '3333', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_admin', totalProducts: 5, monthProducts: 5, historicalProducts: 5, createdAt: '2026-01-01T00:00:00' },
+    { id: 'u_salome', name: 'Salom\u00e9', pin: '4444', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_admin', totalProducts: 3, monthProducts: 3, historicalProducts: 3, createdAt: '2026-01-01T00:00:00' },
   ];
 
   const products = [
@@ -31,7 +31,7 @@ export function seedDatabase() {
   }
 
   // Force migration on pre-existing databases
-  if (!localStorage.getItem('tyango_historical_migrated_v4')) {
+  if (!localStorage.getItem('tyango_historical_migrated_v5')) {
     const historicalData = {
       'u_admin': { historicalProducts: 31, commission: 8.15, delivery: 9.50, mentor: 0.00, total: 17.65 },
       'u_david': { historicalProducts: 9, commission: 4.05, delivery: 1.50, mentor: 0.00, total: 5.55 },
@@ -48,6 +48,7 @@ export function seedDatabase() {
       if (hist) {
         user.historicalProducts = hist.historicalProducts;
         user.totalProducts = hist.historicalProducts;
+        user.monthProducts = hist.historicalProducts;
         
         // Recalculate rank for advisors, preserve founder rank for admin
         if (user.role !== 'admin') {
@@ -100,6 +101,6 @@ export function seedDatabase() {
 
     store._setCollection('users', currentUsers);
     store._setCollection('wallets', currentWallets);
-    localStorage.setItem('tyango_historical_migrated_v4', 'true');
+    localStorage.setItem('tyango_historical_migrated_v5', 'true');
   }
 }
