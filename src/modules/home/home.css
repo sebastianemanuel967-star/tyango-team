@@ -1,0 +1,210 @@
+.home-page {
+  padding: 24px 16px 100px;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Header with greeting */
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.home-greeting {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home-greeting-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.home-greeting-sub {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.home-logout-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--bg-surface);
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 200ms ease;
+  color: var(--text-secondary);
+  font-size: 18px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.home-logout-btn:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: var(--accent-error);
+}
+
+/* Card section */
+.home-card-section {
+  animation: fadeInUp 500ms cubic-bezier(0.16, 1, 0.3, 1) 100ms both;
+}
+
+/* Stats grid */
+.home-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  animation: fadeInUp 500ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both;
+}
+
+.home-stat {
+  background: var(--bg-surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 300ms ease;
+}
+
+.home-stat:hover {
+  border-color: rgba(255,255,255,0.1);
+  transform: translateY(-1px);
+}
+
+.home-stat-icon {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-stat-icon.purple {
+  background: rgba(124, 58, 237, 0.15);
+}
+
+.home-stat-icon.green {
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.home-stat-icon.cyan {
+  background: rgba(6, 182, 212, 0.15);
+}
+
+.home-stat-icon.yellow {
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.home-stat-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.home-stat-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+/* Monthly goal progress */
+.home-goal {
+  background: var(--bg-surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeInUp 500ms cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
+}
+
+.home-goal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-goal-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.home-goal-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-primary-light);
+}
+
+.home-goal-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-surface-3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.home-goal-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-primary-light));
+  transition: width 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 0;
+}
+
+/* CTA Button */
+.home-cta {
+  animation: fadeInUp 500ms cubic-bezier(0.16, 1, 0.3, 1) 400ms both;
+}
+
+.home-cta-btn {
+  width: 100%;
+  min-height: 60px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-primary-light));
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 4px 24px rgba(124, 58, 237, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.home-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(124, 58, 237, 0.4);
+}
+
+.home-cta-btn:active {
+  transform: scale(0.98);
+}
+
+.home-cta-icon {
+  font-size: 22px;
+}
