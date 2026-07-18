@@ -184,171 +184,172 @@
 }
 
 /* ==========================================================================
-   Founder Card Ultra Premium Styles
+   Founder Card Ultra Premium Centurion Styles
    ========================================================================== */
 
-.card-founder-premium {
+.card-founder-centurion {
   background: #0B0B0F !important;
-  border: 1px solid rgba(168, 85, 247, 0.25) !important;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 
-              0 0 30px rgba(124, 58, 237, 0.1),
-              inset 0 1px 1px rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
   overflow: hidden;
 }
 
-.card-founder-premium::after {
-  background: linear-gradient(135deg, rgba(168, 85, 247, 0.4), transparent, rgba(212, 175, 55, 0.3)) !important;
-}
-
-/* Cinematic glowing neon circles in the background */
-.tyango-card-glow-effects {
+/* Subtle metal sheen and glassmorphism reflection overlay */
+.card-centurion-bg {
   position: absolute;
   inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 50%, transparent 100%);
   z-index: 1;
-  pointer-events: none;
-  background: 
-    radial-gradient(circle at 10% 80%, rgba(124, 58, 237, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.12) 0%, transparent 40%);
 }
 
-/* Premium 3D Mascot Image on the Right (35-40% width) */
-.tyango-card-mango-wrapper {
+.card-centurion-reflection {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 38%;
-  z-index: 2;
-  pointer-events: none;
-  border-radius: 0 20px 20px 0;
-  overflow: hidden;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.01) 42%, rgba(255,255,255,0.05) 45%, rgba(255,255,255,0.01) 48%, transparent 50%);
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+  z-index: 1;
 }
 
-.tyango-card-mango-img {
+.card-centurion-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(124, 58, 237, 0.1) 0%, transparent 60%);
+  z-index: 1;
+}
+
+/* Minimalist Metallic Seal on the Right Side (Ferrari/Porsche style) */
+.card-centurion-emblem {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  z-index: 2;
+  background: #0B0B0F;
+}
+
+.card-centurion-emblem-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Radial / Linear gradient mask to blend the image seamlessly into the black background */
-.tyango-card-mango-overlay {
+.card-centurion-emblem-glare {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, #0B0B0F 0%, rgba(11, 11, 15, 0.8) 12%, rgba(11, 11, 15, 0.2) 30%, transparent 50%),
-              linear-gradient(0deg, #0B0B0F 0%, rgba(11, 11, 15, 0.4) 15%, transparent 35%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, transparent 50%);
+  pointer-events: none;
 }
 
-.tyango-card-brand-group {
+/* Top Row */
+.centurion-top {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 6px;
-}
-
-.tyango-card-crown-grabado {
-  font-size: 14px;
-  opacity: 0.35;
-  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
-  animation: float 4s ease-in-out infinite;
-}
-
-/* Metallic gold badge */
-.badge-founder {
-  font-size: 9px !important;
-  font-weight: 700 !important;
-  color: #D4AF37 !important;
-  border: 1px solid rgba(212, 175, 55, 0.3) !important;
-  background: rgba(212, 175, 55, 0.05) !important;
-  text-shadow: 0 0 8px rgba(212, 175, 55, 0.25);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
-
-.tyango-card-middle {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: auto;
-  margin-bottom: auto;
   z-index: 3;
-  position: relative;
 }
 
-/* Metallic gold chip */
-.gold-chip {
-  background: linear-gradient(135deg, #FFE066 0%, #D4AF37 40%, #AA7C11 75%, #F3E5AB 100%) !important;
-  border: 1px solid rgba(255, 224, 102, 0.5) !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+.centurion-logo {
+  font-size: 16px;
+  font-weight: 700;
+  color: #f0f0f5;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
 }
 
-.gold-chip::after {
+.centurion-badge {
+  font-size: 8px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.15em;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* Middle: Modern Metallic Chip (Left Side) */
+.centurion-chip-container {
+  margin-top: 14px;
+  z-index: 3;
+}
+
+.centurion-chip {
+  background: linear-gradient(135deg, #5E5E5E 0%, #D9D9D9 50%, #3B3B3B 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.2) !important;
+  margin-bottom: 0 !important;
+}
+
+.centurion-chip::after {
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 
-.tyango-card-user-info {
+/* Owner Info (Quiet Luxury Typography) */
+.centurion-user-info {
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 2px;
+  z-index: 3;
+  width: 60%;
 }
 
-.founder-rank-badge {
-  font-size: 11px;
+.centurion-name {
+  font-size: 19px;
   font-weight: 700;
-  color: #a855f7;
+  color: #ffffff;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  text-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
 }
 
-/* Premium bottom benefits list (Apple / startup style) */
-.tyango-card-benefits {
+.centurion-rank {
+  font-size: 9px;
+  font-weight: 600;
+  color: #a855f7;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(168, 85, 247, 0.25);
+}
+
+/* Bottom Benefits List */
+.centurion-benefits {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  justify-content: space-between;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 10px;
   margin-top: auto;
   z-index: 3;
-  position: relative;
-  width: 60%; /* Leaves room for the Mango on the right */
+  width: 100%;
 }
 
-.benefit-item {
+.centurion-benefit-item {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
-.benefit-icon {
-  font-size: 10px;
-  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.2));
+.centurion-benefit-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #a855f7;
+  box-shadow: 0 0 5px #a855f7;
 }
 
-.benefit-text {
-  font-size: 9px;
+.centurion-benefit-text {
+  font-size: 7.5px;
   font-weight: 600;
-  color: rgba(240, 240, 245, 0.7);
-  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.45);
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* Elegant grabbed signature "Tyan" */
-.tyango-card-signature {
-  position: absolute;
-  bottom: 12px;
-  right: 20px;
-  font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
-  font-size: 26px;
-  font-weight: 500;
-  color: rgba(212, 175, 55, 0.35);
-  transform: rotate(-5deg);
-  user-select: none;
-  pointer-events: none;
-  z-index: 4;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
-  transition: color 0.3s ease;
-}
-
-.tyango-card:hover .tyango-card-signature {
-  color: rgba(212, 175, 55, 0.6) !important;
-}
 

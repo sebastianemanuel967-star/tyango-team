@@ -18,57 +18,54 @@ export function renderCard(user) {
   const pattern = custom?.pattern || 'default';
   const initials = custom?.initials || '';
 
-  // Special Ultra Premium Layout for the Founder Card
+  // Special Ultra Minimalist & Exclusive Founder Card (Apple + Nothing + Tesla style)
   if (user.cardType === 'founder') {
     return `
-      <div class="tyango-card card-founder-premium animate-scale-in">
-        <div class="tyango-card-bg"></div>
-        <div class="tyango-card-holo"></div>
-        <div class="tyango-card-glow-effects"></div>
+      <div class="tyango-card card-founder-centurion animate-scale-in">
+        <!-- Titanium texture background and glassmorphism reflection overlay -->
+        <div class="card-centurion-bg"></div>
+        <div class="card-centurion-reflection"></div>
+        <div class="card-centurion-glow"></div>
         
-        <!-- Premium 3D Mascot on the Right -->
-        <div class="tyango-card-mango-wrapper">
-          <img src="src/components/card/founder_mango.jpg" class="tyango-card-mango-img" alt="Founder Mango">
-          <div class="tyango-card-mango-overlay"></div>
+        <!-- Minimalist Metallic Seal on the Right Side -->
+        <div class="card-centurion-emblem">
+          <img src="src/components/card/tyango_emblem.jpg" class="card-centurion-emblem-img" alt="TYANGO Metal Emblem">
+          <div class="card-centurion-emblem-glare"></div>
         </div>
 
         <div class="tyango-card-content">
-          <!-- Top Section -->
-          <div class="tyango-card-top">
-            <div class="tyango-card-brand-group">
-              <span class="tyango-card-logo">TYANGO</span>
-              <span class="tyango-card-crown-grabado">👑</span>
-            </div>
-            <span class="tyango-card-type badge-founder">Founder Card</span>
+          <!-- Top Row -->
+          <div class="centurion-top">
+            <span class="centurion-logo">TYANGO</span>
+            <span class="centurion-badge">FOUNDER CARD</span>
           </div>
 
-          <!-- Middle Section -->
-          <div class="tyango-card-middle">
-            <div class="tyango-card-chip gold-chip"></div>
-            <div class="tyango-card-user-info">
-              <span class="tyango-card-name">${user.name || 'Tyan Mena'}</span>
-              <span class="tyango-card-rank founder-rank-badge">Founder GO</span>
-            </div>
+          <!-- Middle Section: Modern Metallic Chip -->
+          <div class="centurion-chip-container">
+            <div class="tyango-card-chip centurion-chip"></div>
           </div>
 
-          <!-- Bottom Benefits Section -->
-          <div class="tyango-card-benefits">
-            <div class="benefit-item">
-              <span class="benefit-icon">🚀</span>
-              <span class="benefit-text">Lead the Vision</span>
-            </div>
-            <div class="benefit-item">
-              <span class="benefit-icon">📈</span>
-              <span class="benefit-text">Scale the Brand</span>
-            </div>
-            <div class="benefit-item">
-              <span class="benefit-icon">💎</span>
-              <span class="benefit-text">Make an Impact</span>
-            </div>
+          <!-- Owner Information (Centered Vibe) -->
+          <div class="centurion-user-info">
+            <h2 class="centurion-name">${user.name || 'Tyan Mena'}</h2>
+            <span class="centurion-rank">FOUNDER GO</span>
           </div>
 
-          <!-- Grabados / Signature -->
-          <div class="tyango-card-signature">Tyan</div>
+          <!-- Bottom Row: Three Minimalist Benefits -->
+          <div class="centurion-benefits">
+            <div class="centurion-benefit-item">
+              <span class="centurion-benefit-dot"></span>
+              <span class="centurion-benefit-text">Lead the Vision</span>
+            </div>
+            <div class="centurion-benefit-item">
+              <span class="centurion-benefit-dot"></span>
+              <span class="centurion-benefit-text">Scale the Brand</span>
+            </div>
+            <div class="centurion-benefit-item">
+              <span class="centurion-benefit-dot"></span>
+              <span class="centurion-benefit-text">Make an Impact</span>
+            </div>
+          </div>
         </div>
       </div>
     `;
