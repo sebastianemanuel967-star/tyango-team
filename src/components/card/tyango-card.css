@@ -352,4 +352,734 @@
   letter-spacing: 0.05em;
 }
 
+/* ==========================================================================
+   Jordan Card Custom Premium Styles
+   ========================================================================== */
+
+.card-jordan-premium {
+  background: linear-gradient(135deg, #09090C 0%, #150A0A 50%, #2A0808 100%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.22) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 
+              0 0 30px rgba(239, 68, 68, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  overflow: hidden;
+}
+
+.card-jordan-premium::after {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), transparent, rgba(255, 255, 255, 0.1)) !important;
+}
+
+.card-jordan-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.015) 0%, rgba(255,255,255,0.005) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.card-jordan-reflection {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.01) 42%, rgba(255,255,255,0.04) 45%, rgba(255,255,255,0.01) 48%, transparent 50%);
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.card-jordan-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(239, 68, 68, 0.08) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Subtle watermark initials JRD */
+.jordan-watermark {
+  position: absolute;
+  right: 24px;
+  top: 36%;
+  transform: translateY(-50%);
+  font-size: 78px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.015);
+  letter-spacing: -0.05em;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.badge-silver {
+  color: #CFD8DC !important;
+  border: 1px solid rgba(207, 216, 220, 0.25) !important;
+  background: rgba(207, 216, 220, 0.05) !important;
+  text-shadow: 0 0 8px rgba(207, 216, 220, 0.25);
+}
+
+/* Silver/Chrome chip details */
+.silver-chip {
+  background: linear-gradient(135deg, #CFD8DC 0%, #90A4AE 45%, #546E7A 75%, #ECEFF1 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+  margin-bottom: 0 !important;
+}
+
+.silver-chip::after {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.jordan-middle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  z-index: 3;
+}
+
+.jordan-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.jordan-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.jordan-rank {
+  font-size: 9px;
+  font-weight: 600;
+  color: #ff3333;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+}
+
+.jordan-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 10px;
+  margin-top: auto;
+  z-index: 3;
+}
+
+/* Quote box (Apple ad styling) */
+.jordan-quote-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 65%;
+  line-height: 1.2;
+}
+
+.jordan-quote-marks {
+  font-size: 26px;
+  font-weight: 900;
+  color: rgba(239, 68, 68, 0.3);
+  height: 10px;
+  line-height: 0.6;
+  font-family: 'Georgia', serif;
+  margin-bottom: 2px;
+}
+
+.jordan-quote-top {
+  font-size: 7.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.jordan-quote-main {
+  font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+  font-size: 16px;
+  color: #ff4444;
+  font-weight: 500;
+  margin-top: 2px;
+  text-shadow: 0 0 6px rgba(239, 68, 68, 0.2);
+}
+
+/* Personalized Signature (Jordan) */
+.jordan-signature {
+  font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
+  transform: rotate(-6deg);
+  margin-bottom: 4px;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.tyango-card:hover .jordan-signature {
+  color: #ff4444 !important;
+  text-shadow: 0 0 8px rgba(239, 68, 68, 0.4);
+}
+
+/* ==========================================================================
+   Ayde Card Custom Premium Styles (Argentine Sky & Luxury Vibe)
+   ========================================================================== */
+
+.card-ayde-premium {
+  background: linear-gradient(135deg, #07090E 0%, #0E1626 50%, #15243C 100%) !important;
+  border: 1px solid rgba(126, 200, 255, 0.22) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 
+              0 0 30px rgba(126, 200, 255, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  overflow: hidden;
+}
+
+.card-ayde-premium::after {
+  background: linear-gradient(135deg, rgba(126, 200, 255, 0.3), transparent, rgba(255, 255, 255, 0.1)) !important;
+}
+
+.card-ayde-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.015) 0%, rgba(255,255,255,0.005) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.card-ayde-reflection {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.01) 42%, rgba(255,255,255,0.04) 45%, rgba(255,255,255,0.01) 48%, transparent 50%);
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.card-ayde-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(126, 200, 255, 0.08) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Light Wave moving at the bottom of the card */
+.card-ayde-light-wave {
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 200%;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, rgba(126, 200, 255, 0.3), rgba(255, 255, 255, 0.25), rgba(126, 200, 255, 0.3), transparent);
+  filter: blur(1px);
+  animation: waveRun 5s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes waveRun {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Subtle watermark initials AYD */
+.ayde-watermark {
+  position: absolute;
+  right: 24px;
+  top: 36%;
+  transform: translateY(-50%);
+  font-size: 78px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.015);
+  letter-spacing: -0.05em;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.badge-bronze {
+  color: #CD7F32 !important;
+  border: 1px solid rgba(205, 127, 50, 0.25) !important;
+  background: rgba(205, 127, 50, 0.05) !important;
+  text-shadow: 0 0 8px rgba(205, 127, 50, 0.25);
+}
+
+.ayde-middle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  z-index: 3;
+}
+
+.ayde-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ayde-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.ayde-rank {
+  font-size: 9px;
+  font-weight: 600;
+  color: #7EC8FF;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(126, 200, 255, 0.3);
+}
+
+.ayde-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 10px;
+  margin-top: auto;
+  z-index: 3;
+}
+
+/* Quote box (Apple ad styling) */
+.ayde-quote-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 65%;
+  line-height: 1.2;
+}
+
+.ayde-quote-marks {
+  font-size: 26px;
+  font-weight: 900;
+  color: rgba(126, 200, 255, 0.3);
+  height: 10px;
+  line-height: 0.6;
+  font-family: 'Georgia', serif;
+  margin-bottom: 2px;
+}
+
+.ayde-quote-top {
+  font-size: 7.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ayde-quote-main {
+  font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+  font-size: 16px;
+  color: #7EC8FF;
+  font-weight: 500;
+  margin-top: 2px;
+  text-shadow: 0 0 6px rgba(126, 200, 255, 0.2);
+}
+
+/* Personalized Signature (Ayde) */
+.ayde-signature {
+  font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
+  transform: rotate(-6deg);
+  margin-bottom: 4px;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.tyango-card:hover .ayde-signature {
+  color: #7EC8FF !important;
+  text-shadow: 0 0 8px rgba(126, 200, 255, 0.4);
+}
+
+/* ==========================================================================
+   Salomé Card Custom Premium Styles (Rose Gold & Delicacy Vibe)
+   ========================================================================== */
+
+.card-salome-premium {
+  background: linear-gradient(135deg, #090607 0%, #1A1113 50%, #2F1E22 100%) !important;
+  border: 1px solid rgba(216, 167, 177, 0.22) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 
+              0 0 30px rgba(216, 167, 177, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  overflow: hidden;
+}
+
+.card-salome-premium::after {
+  background: linear-gradient(135deg, rgba(216, 167, 177, 0.3), transparent, rgba(255, 255, 255, 0.1)) !important;
+}
+
+.card-salome-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.015) 0%, rgba(255,255,255,0.005) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.card-salome-reflection {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.01) 42%, rgba(255,255,255,0.04) 45%, rgba(255,255,255,0.01) 48%, transparent 50%);
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.card-salome-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(216, 167, 177, 0.08) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Rose Gold Light Ribbon moving at the bottom of the card */
+.card-salome-light-wave {
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 200%;
+  height: 6px;
+  background: linear-gradient(90deg, transparent, rgba(216, 167, 177, 0.3), rgba(255, 255, 255, 0.25), rgba(216, 167, 177, 0.3), transparent);
+  filter: blur(1px);
+  animation: waveRun 5s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Subtle watermark initials SLM */
+.salome-watermark {
+  position: absolute;
+  right: 24px;
+  top: 36%;
+  transform: translateY(-50%);
+  font-size: 78px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.015);
+  letter-spacing: -0.05em;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Rose Gold metallic chip details */
+.rose-gold-chip {
+  background: linear-gradient(135deg, #ECC5C8 0%, #D8A7B1 45%, #AA7C85 75%, #F5D3D6 100%) !important;
+  border: 1px solid rgba(216, 167, 177, 0.25) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+  margin-bottom: 0 !important;
+}
+
+.rose-gold-chip::after {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.salome-middle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  z-index: 3;
+}
+
+.salome-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.salome-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.salome-rank {
+  font-size: 9px;
+  font-weight: 600;
+  color: #D8A7B1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(216, 167, 177, 0.3);
+}
+
+.salome-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 10px;
+  margin-top: auto;
+  z-index: 3;
+}
+
+/* Quote box (Apple ad styling) */
+.salome-quote-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 65%;
+  line-height: 1.2;
+}
+
+.salome-quote-marks {
+  font-size: 26px;
+  font-weight: 900;
+  color: rgba(216, 167, 177, 0.3);
+  height: 10px;
+  line-height: 0.6;
+  font-family: 'Georgia', serif;
+  margin-bottom: 2px;
+}
+
+.salome-quote-top {
+  font-size: 7.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.salome-quote-main {
+  font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+  font-size: 16px;
+  color: #D8A7B1;
+  font-weight: 500;
+  margin-top: 2px;
+  text-shadow: 0 0 6px rgba(216, 167, 177, 0.2);
+}
+
+/* Personalized Signature (Salomé) */
+.salome-signature {
+  font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
+  transform: rotate(-6deg);
+  margin-bottom: 4px;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.tyango-card:hover .salome-signature {
+  color: #D8A7B1 !important;
+  text-shadow: 0 0 8px rgba(216, 167, 177, 0.4);
+}
+
+/* ==========================================================================
+   David Card Custom Premium Styles (Athletic & Gold/Bronze Vibe)
+   ========================================================================== */
+
+.card-david-premium {
+  background: linear-gradient(135deg, #050507 0%, #151310 50%, #2A2118 100%) !important;
+  border: 1px solid rgba(218, 165, 32, 0.22) !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 
+              0 0 30px rgba(218, 165, 32, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  overflow: hidden;
+}
+
+.card-david-premium::after {
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.3), transparent, rgba(255, 255, 255, 0.1)) !important;
+}
+
+.card-david-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.015) 0%, rgba(255,255,255,0.005) 50%, transparent 100%);
+  z-index: 1;
+}
+
+.card-david-reflection {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.01) 42%, rgba(255,255,255,0.04) 45%, rgba(255,255,255,0.01) 48%, transparent 50%);
+  background-size: 200% 100%;
+  animation: shimmer 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+.card-david-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 80% 30%, rgba(218, 165, 32, 0.08) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Stadium Spotlight glow effect */
+.card-david-stadium-lights {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  background: linear-gradient(180deg, rgba(218, 165, 32, 0.04) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Subtle dynamic speed lines / pitch borders */
+.card-david-pitch-lines {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.015) 41%, rgba(255,255,255,0.015) 42%, transparent 43%), 
+    linear-gradient(65deg, transparent 55%, rgba(255,255,255,0.01) 56%, rgba(255,255,255,0.01) 57%, transparent 58%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Gold dust particles */
+.card-david-particles {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 25% 75%, rgba(218, 165, 32, 0.02) 1px, transparent 1px), 
+    radial-gradient(circle at 80% 35%, rgba(218, 165, 32, 0.015) 1px, transparent 1px);
+  background-size: 35px 35px, 50px 50px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Subtle watermark initials DAV */
+.david-watermark {
+  position: absolute;
+  right: 24px;
+  top: 36%;
+  transform: translateY(-50%);
+  font-size: 78px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.015);
+  letter-spacing: -0.05em;
+  font-family: 'Inter', sans-serif;
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Metallic bronze chip details */
+.bronze-chip {
+  background: linear-gradient(135deg, #E5C199 0%, #CD7F32 45%, #8C521A 75%, #F0D5BB 100%) !important;
+  border: 1px solid rgba(205, 127, 50, 0.25) !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
+  margin-bottom: 0 !important;
+}
+
+.bronze-chip::after {
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+
+.david-middle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  z-index: 3;
+}
+
+.david-user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.david-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.david-rank {
+  font-size: 9px;
+  font-weight: 600;
+  color: #DAA520;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(218, 165, 32, 0.3);
+}
+
+.david-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 10px;
+  margin-top: auto;
+  z-index: 3;
+}
+
+/* Quote box (Apple ad styling) */
+.david-quote-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 65%;
+  line-height: 1.2;
+}
+
+.david-quote-marks {
+  font-size: 26px;
+  font-weight: 900;
+  color: rgba(218, 165, 32, 0.3);
+  height: 10px;
+  line-height: 0.6;
+  font-family: 'Georgia', serif;
+  margin-bottom: 2px;
+}
+
+.david-quote-top {
+  font-size: 7.5px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.david-quote-main {
+  font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+  font-size: 16px;
+  color: #DAA520;
+  font-weight: 500;
+  margin-top: 2px;
+  text-shadow: 0 0 6px rgba(218, 165, 32, 0.2);
+}
+
+/* Personalized Signature (David) */
+.david-signature {
+  font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
+  font-size: 22px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.35);
+  transform: rotate(-6deg);
+  margin-bottom: 4px;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  transition: color 0.3s ease;
+}
+
+.tyango-card:hover .david-signature {
+  color: #DAA520 !important;
+  text-shadow: 0 0 8px rgba(218, 165, 32, 0.4);
+}
+
+
+
+
+
 
