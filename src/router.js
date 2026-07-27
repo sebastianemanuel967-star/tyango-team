@@ -15,27 +15,21 @@ class Router {
   }
   
   _handleRoute() {
-    const hash = window.location.hash.slice(2) || 'login'; // Remove '#/'
+    const rawHash = window.location.hash.replace(/^#\/?/, '');
+    const hash = rawHash || 'login';
     this.currentRoute = hash;
     
     if (!this.appElement) {
       this.appElement = document.getElementById('app');
     }
     
+    if (!this.appElement) return;
+
     const handler = this.routes.get(hash);
     if (handler) {
-      // Add fade transition
-      this.appElement.style.opacity = '0';
-      this.appElement.style.transform = 'translateY(5px)';
-      
-      setTimeout(() => {
-        handler(this.appElement);
-        requestAnimationFrame(() => {
-          this.appElement.style.transition = 'opacity 200ms ease, transform 200ms ease';
-          this.appElement.style.opacity = '1';
-          this.appElement.style.transform = 'translateY(0)';
-        });
-      }, 150);
+      this.appElement.style.opacity = '1';
+      this.appElement.style.transform = 'none';
+      handler(this.appElement);
     } else {
       this.navigate('login');
     }

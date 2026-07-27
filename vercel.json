@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "public": true,
+  "headers": [
+    {
+      "source": "/src/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
