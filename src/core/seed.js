@@ -6,7 +6,7 @@ export function seedDatabase() {
     { id: 'u_david', name: 'David', pin: '1111', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_admin', totalProducts: 9, monthProducts: 9, historicalProducts: 9, createdAt: '2026-01-01T00:00:00' },
     { id: 'u_jordan', name: 'Jordan', pin: '2222', role: 'asesor', rank: 'explorador_go', cardType: 'silver', cardCustom: { gradient: ['#1a1a1a', '#8B0000'], accent: '#ff3333', style: 'urban', initials: 'JRD', pattern: 'graffiti' }, mentorId: 'u_admin', totalProducts: 5, monthProducts: 5, historicalProducts: 5, createdAt: '2026-01-01T00:00:00' },
     { id: 'u_ayde', name: 'Ayde', pin: '3333', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_admin', totalProducts: 5, monthProducts: 5, historicalProducts: 5, createdAt: '2026-01-01T00:00:00' },
-    { id: 'u_salome', name: 'Salom\u00e9', pin: '4444', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_admin', totalProducts: 3, monthProducts: 3, historicalProducts: 3, createdAt: '2026-01-01T00:00:00' },
+    { id: 'u_dennis', name: 'Dennis', pin: '4444', role: 'asesor', rank: 'explorador_go', cardType: 'bronze', cardCustom: null, mentorId: 'u_david', totalProducts: 3, monthProducts: 3, historicalProducts: 3, createdAt: '2026-01-01T00:00:00' },
   ];
 
   const products = [
@@ -30,18 +30,43 @@ export function seedDatabase() {
     store.initialize({ users, products, settings });
   }
 
-  // Force migration on pre-existing databases
-  if (!localStorage.getItem('tyango_historical_migrated_v5')) {
+  // Force migration on pre-existing databases (Migration v6: Replace Salomé with Dennis, set David as mentor)
+  const currentUsersList = store.getUsers();
+  const needsDennisFix = currentUsersList.some(u => u.id === 'u_salome') || !currentUsersList.some(u => u.id === 'u_dennis');
+
+  if (!localStorage.getItem('tyango_historical_migrated_v6') || needsDennisFix) {
     const historicalData = {
       'u_admin': { historicalProducts: 31, commission: 8.15, delivery: 9.50, mentor: 0.00, total: 17.65 },
-      'u_david': { historicalProducts: 9, commission: 4.05, delivery: 1.50, mentor: 0.00, total: 5.55 },
+      'u_david': { historicalProducts: 9, commission: 4.05, delivery: 1.50, mentor: 0.30, total: 5.85 },
       'u_jordan': { historicalProducts: 5, commission: 1.70, delivery: 3.50, mentor: 0.00, total: 5.20 },
       'u_ayde': { historicalProducts: 5, commission: 1.30, delivery: 2.00, mentor: 1.05, total: 4.35 },
-      'u_salome': { historicalProducts: 3, commission: 1.35, delivery: 0.00, mentor: 0.00, total: 1.35 }
+      'u_dennis': { historicalProducts: 3, commission: 1.35, delivery: 0.00, mentor: 0.00, total: 1.35 }
     };
 
-    const currentUsers = store.getUsers();
-    const currentWallets = store._getCollection('wallets');
+    let currentUsers = store.getUsers();
+    let currentWallets = store._getCollection('wallets');
+
+    // Remove Salomé if present
+    currentUsers = currentUsers.filter(u => u.id !== 'u_salome');
+    currentWallets = currentWallets.filter(w => w.userId !== 'u_salome');
+
+    // Add Dennis if not present
+    if (!currentUsers.some(u => u.id === 'u_dennis')) {
+      currentUsers.push({
+        id: 'u_dennis',
+        name: 'Dennis',
+        pin: '4444',
+        role: 'asesor',
+        rank: 'explorador_go',
+        cardType: 'bronze',
+        cardCustom: null,
+        mentorId: 'u_david',
+        totalProducts: 3,
+        monthProducts: 3,
+        historicalProducts: 3,
+        createdAt: '2026-01-01T00:00:00'
+      });
+    }
 
     currentUsers.forEach(user => {
       const hist = historicalData[user.id];
@@ -50,6 +75,10 @@ export function seedDatabase() {
         user.totalProducts = hist.historicalProducts;
         user.monthProducts = hist.historicalProducts;
         
+        if (user.id === 'u_dennis') {
+          user.mentorId = 'u_david';
+        }
+
         // Recalculate rank for advisors, preserve founder rank for admin
         if (user.role !== 'admin') {
           const newRankObj = store.calculateRank(user.totalProducts);
@@ -101,6 +130,6 @@ export function seedDatabase() {
 
     store._setCollection('users', currentUsers);
     store._setCollection('wallets', currentWallets);
-    localStorage.setItem('tyango_historical_migrated_v5', 'true');
+    localStorage.setItem('tyango_historical_migrated_v6', 'true');
   }
 }

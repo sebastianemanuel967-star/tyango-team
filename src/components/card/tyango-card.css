@@ -702,30 +702,30 @@
 }
 
 /* ==========================================================================
-   Salomé Card Custom Premium Styles (Rose Gold & Delicacy Vibe)
+   Dennis Card Custom Premium Styles (Emerald & Tech Vibe)
    ========================================================================== */
 
-.card-salome-premium {
-  background: linear-gradient(135deg, #090607 0%, #1A1113 50%, #2F1E22 100%) !important;
-  border: 1px solid rgba(216, 167, 177, 0.22) !important;
+.card-dennis-premium {
+  background: linear-gradient(135deg, #050A08 0%, #0A1B14 50%, #102C20 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.22) !important;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75), 
-              0 0 30px rgba(216, 167, 177, 0.08),
+              0 0 30px rgba(16, 185, 129, 0.08),
               inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
   overflow: hidden;
 }
 
-.card-salome-premium::after {
-  background: linear-gradient(135deg, rgba(216, 167, 177, 0.3), transparent, rgba(255, 255, 255, 0.1)) !important;
+.card-dennis-premium::after {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), transparent, rgba(255, 255, 255, 0.1)) !important;
 }
 
-.card-salome-bg {
+.card-dennis-bg {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(255,255,255,0.015) 0%, rgba(255,255,255,0.005) 50%, transparent 100%);
   z-index: 1;
 }
 
-.card-salome-reflection {
+.card-dennis-reflection {
   position: absolute;
   inset: 0;
   background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.01) 42%, rgba(255,255,255,0.04) 45%, rgba(255,255,255,0.01) 48%, transparent 50%);
@@ -734,29 +734,29 @@
   z-index: 1;
 }
 
-.card-salome-glow {
+.card-dennis-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 30%, rgba(216, 167, 177, 0.08) 0%, transparent 50%);
+  background: radial-gradient(circle at 80% 30%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
   z-index: 1;
 }
 
-/* Rose Gold Light Ribbon moving at the bottom of the card */
-.card-salome-light-wave {
+/* Emerald Light Wave moving at the bottom of the card */
+.card-dennis-light-wave {
   position: absolute;
   bottom: 0;
   left: -100%;
   width: 200%;
   height: 6px;
-  background: linear-gradient(90deg, transparent, rgba(216, 167, 177, 0.3), rgba(255, 255, 255, 0.25), rgba(216, 167, 177, 0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.3), rgba(255, 255, 255, 0.25), rgba(16, 185, 129, 0.3), transparent);
   filter: blur(1px);
   animation: waveRun 5s linear infinite;
   z-index: 2;
   pointer-events: none;
 }
 
-/* Subtle watermark initials SLM */
-.salome-watermark {
+/* Subtle watermark initials DNS */
+.dennis-watermark {
   position: absolute;
   right: 24px;
   top: 36%;
@@ -771,19 +771,19 @@
   z-index: 1;
 }
 
-/* Rose Gold metallic chip details */
-.rose-gold-chip {
-  background: linear-gradient(135deg, #ECC5C8 0%, #D8A7B1 45%, #AA7C85 75%, #F5D3D6 100%) !important;
-  border: 1px solid rgba(216, 167, 177, 0.25) !important;
+/* Emerald metallic chip details */
+.emerald-chip {
+  background: linear-gradient(135deg, #A7F3D0 0%, #10B981 45%, #047857 75%, #D1FAE5 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.25) !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.25) !important;
   margin-bottom: 0 !important;
 }
 
-.rose-gold-chip::after {
+.emerald-chip::after {
   border: 1px solid rgba(0, 0, 0, 0.2) !important;
 }
 
-.salome-middle {
+.dennis-middle {
   display: flex;
   align-items: center;
   gap: 14px;
@@ -791,13 +791,13 @@
   z-index: 3;
 }
 
-.salome-user-details {
+.dennis-user-details {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
 
-.salome-name {
+.dennis-name {
   font-size: 18px;
   font-weight: 700;
   color: #ffffff;
@@ -805,16 +805,16 @@
   text-transform: uppercase;
 }
 
-.salome-rank {
+.dennis-rank {
   font-size: 9px;
   font-weight: 600;
-  color: #D8A7B1;
+  color: #10B981;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  text-shadow: 0 0 8px rgba(216, 167, 177, 0.3);
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.3);
 }
 
-.salome-bottom {
+.dennis-bottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -825,7 +825,7 @@
 }
 
 /* Quote box (Apple ad styling) */
-.salome-quote-box {
+.dennis-quote-box {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -833,17 +833,17 @@
   line-height: 1.2;
 }
 
-.salome-quote-marks {
+.dennis-quote-marks {
   font-size: 26px;
   font-weight: 900;
-  color: rgba(216, 167, 177, 0.3);
+  color: rgba(16, 185, 129, 0.3);
   height: 10px;
   line-height: 0.6;
   font-family: 'Georgia', serif;
   margin-bottom: 2px;
 }
 
-.salome-quote-top {
+.dennis-quote-top {
   font-size: 7.5px;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.6);
@@ -851,17 +851,17 @@
   text-transform: uppercase;
 }
 
-.salome-quote-main {
+.dennis-quote-main {
   font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
   font-size: 16px;
-  color: #D8A7B1;
+  color: #10B981;
   font-weight: 500;
   margin-top: 2px;
-  text-shadow: 0 0 6px rgba(216, 167, 177, 0.2);
+  text-shadow: 0 0 6px rgba(16, 185, 129, 0.2);
 }
 
-/* Personalized Signature (Salomé) */
-.salome-signature {
+/* Personalized Signature (Dennis) */
+.dennis-signature {
   font-family: 'Brush Script MT', 'Dancing Script', 'Georgia', cursive;
   font-size: 22px;
   font-weight: 500;
@@ -874,9 +874,9 @@
   transition: color 0.3s ease;
 }
 
-.tyango-card:hover .salome-signature {
-  color: #D8A7B1 !important;
-  text-shadow: 0 0 8px rgba(216, 167, 177, 0.4);
+.tyango-card:hover .dennis-signature {
+  color: #10B981 !important;
+  text-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
 }
 
 /* ==========================================================================

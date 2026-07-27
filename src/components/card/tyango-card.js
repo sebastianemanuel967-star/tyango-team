@@ -65,19 +65,19 @@ export function renderCard(user) {
     `;
   }
 
-  // Special Ultra Premium & Custom card for Salomé (Rose Gold & Delicacy inspiration)
-  if (user.id === 'u_salome' || user.name === 'Salomé' || user.name === 'Salom\u00e9') {
+  // Special Ultra Premium & Custom card for Dennis (High Tech Emerald & Carbon inspiration)
+  if (user.id === 'u_dennis' || user.name === 'Dennis') {
     return `
-      <div class="tyango-card card-salome-premium animate-scale-in">
-        <div class="card-salome-bg"></div>
-        <div class="card-salome-reflection"></div>
-        <div class="card-salome-glow"></div>
+      <div class="tyango-card card-dennis-premium animate-scale-in">
+        <div class="card-dennis-bg"></div>
+        <div class="card-dennis-reflection"></div>
+        <div class="card-dennis-glow"></div>
         
-        <!-- Rose Gold Light Wave Animation at the bottom -->
-        <div class="card-salome-light-wave"></div>
+        <!-- Emerald Light Wave Animation at the bottom -->
+        <div class="card-dennis-light-wave"></div>
         
-        <!-- Large SLM Watermark Background -->
-        <div class="salome-watermark">SLM</div>
+        <!-- Large DNS Watermark Background -->
+        <div class="dennis-watermark">DNS</div>
 
         <div class="tyango-card-content">
           <!-- Top Row -->
@@ -87,25 +87,25 @@ export function renderCard(user) {
           </div>
 
           <!-- Middle: Modern Chip, Name and Rank -->
-          <div class="salome-middle">
-            <div class="tyango-card-chip rose-gold-chip"></div>
-            <div class="salome-user-details">
-              <span class="salome-name">${user.name || 'Salomé'}</span>
-              <span class="salome-rank">EXPLORADOR GO</span>
+          <div class="dennis-middle">
+            <div class="tyango-card-chip emerald-chip"></div>
+            <div class="dennis-user-details">
+              <span class="dennis-name">${user.name || 'Dennis'}</span>
+              <span class="dennis-rank">EXPLORADOR GO</span>
             </div>
           </div>
 
           <!-- Bottom Area -->
-          <div class="salome-bottom">
+          <div class="dennis-bottom">
             <!-- Inspirational Quote Left -->
-            <div class="salome-quote-box">
-              <span class="salome-quote-marks">“</span>
-              <span class="salome-quote-top">Haz que cada paso te acerque</span>
-              <span class="salome-quote-main">a tu mejor versión.</span>
+            <div class="dennis-quote-box">
+              <span class="dennis-quote-marks">“</span>
+              <span class="dennis-quote-top">Mentalidad y enfoque</span>
+              <span class="dennis-quote-main">construyen resultados.</span>
             </div>
             
             <!-- Elegant Handwritten Signature Right -->
-            <div class="salome-signature">Salomé</div>
+            <div class="dennis-signature">Dennis</div>
           </div>
         </div>
       </div>
