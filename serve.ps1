@@ -1,66 +1,61 @@
-# Servidor HTTP ligero en PowerShell para TYANGO STAFF v2
-# Nativamente compatible con Windows sin Node, Python o PHP.
+# ============================================
+# serve.ps1 - Servidor HTTP para TYANGO STAFF v2
+# ============================================
 
 $port = 8080
 $listener = New-Object System.Net.HttpListener
 $listener.Prefixes.Add("http://localhost:$port/")
+$listener.Start()
 
-Write-Host "Iniciando servidor en http://localhost:$port/"
-try {
-    $listener.Start()
-    Write-Host "Servidor listo. Abre http://localhost:$port en tu navegador."
-    Write-Host "Para detener el servidor, presiona Ctrl+C en esta terminal."
-    
-    while ($listener.IsListening) {
+Write-Host "🥭 TYANGO STAFF v2 - Servidor iniciado" -ForegroundColor Magenta
+Write-Host "📱 Abre: http://localhost:$port" -ForegroundColor Cyan
+Write-Host "⏹️  Presiona Ctrl+C para detener" -ForegroundColor Gray
+Write-Host ""
+
+$mimeTypes = @{
+    ".html" = "text/html"
+    ".css"  = "text/css"
+    ".js"   = "application/javascript"
+    ".json" = "application/json"
+    ".png"  = "image/png"
+    ".jpg"  = "image/jpeg"
+    ".jpeg" = "image/jpeg"
+    ".svg"  = "image/svg+xml"
+    ".ico"  = "image/x-icon"
+    ".woff" = "font/woff"
+    ".woff2"= "font/woff2"
+    ".ttf"  = "font/ttf"
+}
+
+while ($listener.IsListening) {
+    try {
         $context = $listener.GetContext()
         $request = $context.Request
         $response = $context.Response
-        
-        # Obtener ruta local relativa
-        $urlPath = $request.Url.LocalPath
-        if ($urlPath -eq "/") {
-            $urlPath = "/index.html"
-        }
-        
-        # Eliminar barra inicial para Join-Path
-        $relPath = $urlPath.Substring(1)
-        # Limpiar barras diagonales para Windows
-        $relPath = $relPath -replace "/", "\"
-        $filePath = Join-Path $PSScriptRoot $relPath
-        
-        if (Test-Path $filePath -PathType Leaf) {
-            # Determinar tipo de contenido (MIME type)
-            $ext = [System.IO.Path]::GetExtension($filePath).ToLower()
-            $contentType = "text/plain"
-            switch ($ext) {
-                ".html" { $contentType = "text/html; charset=utf-8" }
-                ".css"  { $contentType = "text/css; charset=utf-8" }
-                ".js"   { $contentType = "application/javascript; charset=utf-8" }
-                ".svg"  { $contentType = "image/svg+xml" }
-                ".png"  { $contentType = "image/png" }
-                ".jpg"  { $contentType = "image/jpeg" }
-                ".ico"  { $contentType = "image/x-icon" }
-                ".json" { $contentType = "application/json; charset=utf-8" }
-            }
-            
-            # Leer bytes del archivo
-            $bytes = [System.IO.File]::ReadAllBytes($filePath)
-            
-            $response.ContentType = $contentType
-            $response.ContentLength64 = $bytes.Length
-            $response.OutputStream.Write($bytes, 0, $bytes.Length)
+
+        $url = $request.Url.LocalPath
+        if ($url -eq "/") { $url = "/index.html" }
+
+        $filePath = Join-Path $PSScriptRoot $url
+        $ext = [System.IO.Path]::GetExtension($filePath).ToLower()
+
+        if (Test-Path $filePath) {
+            $content = [System.IO.File]::ReadAllBytes($filePath)
+            $response.ContentType = $mimeTypes[$ext]
+            $response.ContentLength64 = $content.Length
+            $response.OutputStream.Write($content, 0, $content.Length)
         } else {
-            # 404 No encontrado
             $response.StatusCode = 404
-            $errBytes = [System.Text.Encoding]::UTF8.GetBytes("Archivo no encontrado: $urlPath")
-            $response.ContentType = "text/plain; charset=utf-8"
-            $response.ContentLength64 = $errBytes.Length
-            $response.OutputStream.Write($errBytes, 0, $errBytes.Length)
+            $notFound = [System.Text.Encoding]::UTF8.GetBytes("404 - Not Found")
+            $response.ContentLength64 = $notFound.Length
+            $response.OutputStream.Write($notFound, 0, $notFound.Length)
         }
-        $response.OutputStream.Close()
+
+        $response.Close()
     }
-} catch {
-    Write-Host "Error en el servidor: $_" -ForegroundColor Red
-} finally {
-    $listener.Close()
+    catch {
+        Write-Host "Error: $_" -ForegroundColor Red
+    }
 }
+
+$listener.Stop()

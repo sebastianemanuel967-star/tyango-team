@@ -1,0 +1,576 @@
+/* ============================================
+   TARJETAS DIGITALES PREMIUM - TYANGO STAFF v2
+   ============================================ */
+
+/* ── Base de Tarjeta Digital ── */
+.digital-card {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 1.586;
+    border-radius: var(--radius-xl);
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto var(--space-xl);
+    box-shadow: 
+        0 8px 32px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(255,255,255,0.06),
+        inset 0 1px 0 rgba(255,255,255,0.1);
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.digital-card:hover {
+    transform: translateY(-4px) rotateX(2deg);
+    box-shadow: 
+        0 16px 48px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(255,255,255,0.08),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+.digital-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(0,0,0,0.2) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.digital-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+/* Chip de tarjeta */
+.card-chip {
+    width: 44px;
+    height: 32px;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.2);
+}
+
+.card-chip::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 3px;
+}
+
+.card-chip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-50%);
+}
+
+/* Marca de agua */
+.card-watermark {
+    position: absolute;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 6rem;
+    opacity: 0.04;
+    letter-spacing: -0.02em;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Firma manuscrita */
+.card-signature {
+    font-family: var(--font-handwriting);
+    font-size: 1.25rem;
+    opacity: 0.7;
+    transform: rotate(-3deg);
+}
+
+/* Sello metálico */
+.card-seal {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 
+        0 2px 8px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        inset 0 -1px 0 rgba(0,0,0,0.2);
+}
+
+.card-seal::before {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ── TARJETA TYAN MENA (Founder - Centurion) ── */
+.card-tyan {
+    background: linear-gradient(145deg, #0B0B0F 0%, #15151C 40%, #0B0B0F 100%);
+    border: 1px solid rgba(180, 180, 190, 0.15);
+}
+
+.card-tyan .digital-card-inner {
+    background: 
+        radial-gradient(ellipse at 20% 80%, rgba(180,180,190,0.03) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(180,180,190,0.02) 0%, transparent 50%);
+}
+
+.card-tyan .card-chip {
+    background: linear-gradient(135deg, #8a8a9a, #5a5a6a);
+}
+
+.card-tyan .card-seal {
+    background: linear-gradient(145deg, #c0c0c8, #8a8a9a);
+    color: #2a2a35;
+}
+
+.card-tyan .card-seal svg {
+    width: 24px;
+    height: 24px;
+}
+
+.card-tyan .card-watermark {
+    bottom: 10%;
+    right: 5%;
+    color: rgba(200,200,210,0.06);
+}
+
+.card-tyan .card-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #e8e8ec;
+    letter-spacing: 0.02em;
+}
+
+.card-tyan .card-rank {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(200,200,210,0.7);
+    margin-top: 2px;
+}
+
+.card-tyan .card-benefits {
+    font-size: 0.625rem;
+    color: rgba(180,180,190,0.5);
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+}
+
+.card-tyan .card-top-left {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: rgba(200,200,210,0.6);
+}
+
+.card-tyan .card-top-right {
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(180,180,190,0.4);
+}
+
+/* Borde metálico plateado */
+.card-tyan::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1.5px;
+    background: linear-gradient(135deg, 
+        rgba(200,200,210,0.4) 0%, 
+        rgba(150,150,160,0.1) 25%,
+        rgba(200,200,210,0.3) 50%,
+        rgba(150,150,160,0.1) 75%,
+        rgba(200,200,210,0.4) 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* ── TARJETA JORDAN (Silver - Custom JRD) ── */
+.card-jordan {
+    background: linear-gradient(145deg, #0a0a0f 0%, #1a0a0a 50%, #0f0505 100%);
+    border: 1px solid rgba(180, 50, 50, 0.2);
+}
+
+.card-jordan .digital-card-inner {
+    background: 
+        radial-gradient(ellipse at 30% 70%, rgba(180,40,40,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 30%, rgba(120,20,20,0.05) 0%, transparent 40%);
+}
+
+.card-jordan .card-chip {
+    background: linear-gradient(135deg, #c0c0c0, #909090);
+}
+
+.card-jordan .card-watermark {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 7rem;
+    color: rgba(200, 50, 50, 0.06);
+}
+
+.card-jordan .card-motivation-top {
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+}
+
+.card-jordan .card-motivation-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #e85050;
+    text-shadow: 0 0 20px rgba(232, 80, 80, 0.3);
+    line-height: 1.3;
+    margin-top: 4px;
+}
+
+.card-jordan .card-motivation-quote::before {
+    content: '"';
+    color: #e85050;
+    font-size: 1.5rem;
+    margin-right: 2px;
+}
+
+.card-jordan .card-motivation-quote::after {
+    content: '"';
+    color: #e85050;
+    font-size: 1.5rem;
+    margin-left: 2px;
+}
+
+.card-jordan .card-signature {
+    color: rgba(255,255,255,0.5);
+}
+
+/* ── TARJETA AYDE (Bronze - Cielo Argentino) ── */
+.card-ayde {
+    background: linear-gradient(145deg, #0d0d14 0%, #0a0a12 50%, #0d1218 100%);
+    border: 1px solid rgba(100, 180, 220, 0.15);
+    overflow: hidden;
+}
+
+.card-ayde .digital-card-inner {
+    background: 
+        radial-gradient(ellipse at 50% 100%, rgba(100,180,220,0.06) 0%, transparent 60%);
+}
+
+/* Onda de luz animada */
+.card-ayde::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 300%;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(135, 206, 235, 0.6) 20%,
+        rgba(100, 180, 220, 0.8) 40%,
+        rgba(135, 206, 235, 0.6) 60%,
+        transparent 100%
+    );
+    animation: wave-light 4s linear infinite;
+    z-index: 2;
+}
+
+.card-ayde .card-chip {
+    background: linear-gradient(135deg, #c0c0c0, #a0a0a0);
+}
+
+.card-ayde .card-watermark {
+    bottom: 15%;
+    right: 8%;
+    font-size: 5.5rem;
+    color: rgba(135, 206, 235, 0.05);
+}
+
+.card-ayde .card-motivation-top {
+    font-size: 0.625rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+}
+
+.card-ayde .card-motivation-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: #87CEEB;
+    text-shadow: 0 0 16px rgba(135, 206, 235, 0.25);
+    line-height: 1.3;
+    margin-top: 4px;
+}
+
+.card-ayde .card-signature {
+    color: rgba(135, 206, 235, 0.6);
+}
+
+/* ── TARJETA SALOMÉ (Bronze - Rose Gold) ── */
+.card-salome {
+    background: linear-gradient(145deg, #121015 0%, #1a1216 50%, #121015 100%);
+    border: 1px solid rgba(216, 167, 177, 0.2);
+    overflow: hidden;
+}
+
+.card-salome .digital-card-inner {
+    background: 
+        radial-gradient(ellipse at 50% 100%, rgba(216,167,177,0.05) 0%, transparent 60%);
+}
+
+/* Cinta luminosa animada */
+.card-salome::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        #D8A7B1, 
+        #E8B8C2, 
+        #F0C8D0,
+        #D8A7B1,
+        #C896A0,
+        #D8A7B1
+    );
+    background-size: 300% 100%;
+    animation: ribbon-flow 3s ease-in-out infinite;
+    z-index: 2;
+}
+
+.card-salome .card-chip {
+    background: linear-gradient(135deg, #D8A7B1, #C896A0);
+}
+
+.card-salome .card-watermark {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6.5rem;
+    color: rgba(216, 167, 177, 0.05);
+}
+
+.card-salome .card-motivation-quote {
+    font-family: var(--font-handwriting);
+    font-size: 1.25rem;
+    color: #E8B8C2;
+    text-shadow: 0 0 12px rgba(232, 184, 194, 0.2);
+    line-height: 1.4;
+}
+
+.card-salome .card-signature {
+    color: rgba(216, 167, 177, 0.6);
+}
+
+/* ── TARJETA DAVID (Bronze - Atleta de Élite) ── */
+.card-david {
+    background: linear-gradient(145deg, #0a0a0f 0%, #12100a 50%, #0a0a0f 100%);
+    border: 1px solid rgba(180, 140, 80, 0.2);
+    overflow: hidden;
+}
+
+.card-david .digital-card-inner {
+    background: 
+        radial-gradient(ellipse at 50% 0%, rgba(180,140,80,0.06) 0%, transparent 50%);
+}
+
+/* Spotlights de estadio */
+.card-david .spotlight-left,
+.card-david .spotlight-right {
+    position: absolute;
+    top: -20px;
+    width: 60px;
+    height: 120px;
+    background: linear-gradient(180deg, 
+        rgba(255, 220, 150, 0.15) 0%, 
+        rgba(255, 220, 150, 0.05) 50%,
+        transparent 100%
+    );
+    filter: blur(20px);
+    animation: spotlight-pulse 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+.card-david .spotlight-left {
+    left: 20%;
+    transform: rotate(-15deg);
+}
+
+.card-david .spotlight-right {
+    right: 20%;
+    transform: rotate(15deg);
+    animation-delay: 1.5s;
+}
+
+/* Líneas de cancha */
+.card-david .field-lines {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.08;
+}
+
+.card-david .field-lines::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c8a050, transparent);
+}
+
+.card-david .field-lines::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    bottom: 30%;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, #c8a050, transparent);
+}
+
+/* Partículas doradas */
+.card-david .particles {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.card-david .particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #c8a050;
+    border-radius: 50%;
+    animation: particle-float 4s ease-in-out infinite;
+}
+
+.card-david .particle:nth-child(1) { left: 15%; top: 30%; animation-delay: 0s; }
+.card-david .particle:nth-child(2) { left: 70%; top: 20%; animation-delay: 1s; }
+.card-david .particle:nth-child(3) { left: 40%; top: 60%; animation-delay: 2s; }
+.card-david .particle:nth-child(4) { left: 80%; top: 50%; animation-delay: 0.5s; }
+.card-david .particle:nth-child(5) { left: 25%; top: 70%; animation-delay: 1.5s; }
+
+.card-david .card-chip {
+    background: linear-gradient(135deg, #c8a050, #a08040);
+}
+
+.card-david .card-watermark {
+    bottom: 12%;
+    right: 6%;
+    font-size: 5.5rem;
+    color: rgba(200, 160, 80, 0.05);
+}
+
+.card-david .card-motivation-top {
+    font-size: 0.5625rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+}
+
+.card-david .card-motivation-quote {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #c8a050;
+    text-shadow: 0 0 16px rgba(200, 160, 80, 0.25);
+    line-height: 1.3;
+    margin-top: 4px;
+}
+
+.card-david .card-signature {
+    color: rgba(200, 160, 80, 0.6);
+}
+
+/* ── Layout común de tarjetas ── */
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 3;
+    position: relative;
+}
+
+.card-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    z-index: 3;
+    position: relative;
+}
+
+.card-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 3;
+    position: relative;
+    padding: var(--space-md) 0;
+}
+
+/* ── Responsive tarjetas ── */
+@media (max-width: 400px) {
+    .digital-card {
+        border-radius: var(--radius-lg);
+    }
+
+    .digital-card-inner {
+        padding: var(--space-md);
+    }
+
+    .card-tyan .card-name {
+        font-size: 1.25rem;
+    }
+
+    .card-jordan .card-motivation-quote,
+    .card-ayde .card-motivation-quote,
+    .card-salome .card-motivation-quote,
+    .card-david .card-motivation-quote {
+        font-size: 0.9375rem;
+    }
+
+    .card-watermark {
+        font-size: 4rem !important;
+    }
+}
